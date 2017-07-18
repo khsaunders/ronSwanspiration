@@ -15,12 +15,13 @@ $.ajax({
   //in order to access the data, it has to be 'data.data', instead of just 'data'
     console.log(data.data);
 
-    // for (let i = 0; i < data.data.length; i++){
-      // let pulledGifs = data.data[i].images.downsized.url
-      // let randomGif =  [Math.floor(Math.random() * pulledGifs.length)]
-      let randomGif = data.data[3].images.downsized.url
+    //as for right now, generating a random number to be the iterator
+    //will later specify request for data sample bigger than 25 -- giphy's default (unless it gets too slow)
+    let i = [Math.floor(Math.random() * 25) + 1]
+    let randomGif = data.data[i].images.downsized.url
+    
+    //append them to the paaaaage
       $('#image').append("<img src='" + randomGif + "'/>");
-      console.log(data.data[1].images.downsized.url);
-    // }
+
   });
 });
