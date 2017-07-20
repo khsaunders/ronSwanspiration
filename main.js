@@ -3,8 +3,7 @@
 $('#generate').on('click', function(e){
   e.preventDefault()
 
-
-//Get the gif!
+//Get the gif
 $.ajax({
   //it goes: endpoint +?q= + search term (no spaces) + &api_key= + whatever api key Spotify gives you
   url: "https://api.giphy.com/v1/gifs/search?q=ron_swanson&api_key=99039d219bc44543b8e7588b14751ce3",
@@ -20,17 +19,36 @@ $.ajax({
     let i = [Math.floor(Math.random() * 25) + 1]
     let randomGif = data.data[i].images.downsized.url
 
+    console.log(randomGif);
+
     //append them to the paaaaage
-      $('#image').append("<img src='" + randomGif + "'/>");
+
+      //ACTUALLY append to li
+      //close li
+
+      $.ajax({
+        url: "http://ron-swanson-quotes.herokuapp.com/v2/quotes/1",
+        dataType: "json",
+        method: "GET",
+      }).done(function(data){
+        let randomQuote = data
+        console.log(randomQuote);
+
+        let template = `
+        <ul class=quotesAndImage>
+        <li>
+          <img class=image src="${randomGif}">
+          </li>
+          <li class=quote>${randomQuote}</li>
+          </ul>`
+
+        let wrapper = $('#wrapper');
+
+        wrapper.html(template);
+        //append to li
+
+      })
 
   });
 
-//Get the quote!
-  $.ajax({
-    url: "http://ron-swanson-quotes.herokuapp.com/v2/quotes/1",
-    dataType: "json",
-    method: "GET",
-  }).done(function(data){
-    $('#quote').append(data);
-  })
 });
