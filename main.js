@@ -6,7 +6,7 @@ $('#generate').on('click', function(e){
   $.ajax({
     url: "https://crossorigin.me/http://ron-swanson-quotes.herokuapp.com/v2/quotes/1",
     crossDomain: true,
-    dataType: "json",
+    dataType: "jsonp",
     method: "GET",
   }).done(function(data){
     let randomQuote = data
