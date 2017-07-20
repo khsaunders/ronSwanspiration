@@ -3,6 +3,15 @@
 $('#generate').on('click', function(e){
   e.preventDefault()
 
+  $.ajax({
+    url: "http://ron-swanson-quotes.herokuapp.com/v2/quotes/1",
+    Access-Control-Allow-Origin:* 
+    dataType: "json",
+    method: "GET",
+  }).done(function(data){
+    let randomQuote = data
+    console.log(randomQuote);
+
 //Get the gif
 $.ajax({
   //it goes: endpoint +?q= + search term (no spaces) + &api_key= + whatever api key Spotify gives you
@@ -25,14 +34,6 @@ $.ajax({
 
       //ACTUALLY append to li
       //close li
-
-      $.ajax({
-        url: "https://crossorigin.me/http://ron-swanson-quotes.herokuapp.com/v2/quotes/1",
-        dataType: "json",
-        method: "GET",
-      }).done(function(data){
-        let randomQuote = data
-        console.log(randomQuote);
 
         let template = `
         <ul class=quotesAndImage>
