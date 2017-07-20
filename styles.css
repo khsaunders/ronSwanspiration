@@ -1,9 +1,10 @@
 body{
   margin: 0 auto;
   font-family: 'Patua One', serif;
-  font-size: 1.15em;
+  font-size: 1.25em;
   background-color: #3F4028;
   color: white;
+  letter-spacing: 1px;
 }
 
 #wrapper{
@@ -24,7 +25,7 @@ li{
 
 .quote{
   font-weight: lighter;
-  padding-top: 2%;
+  padding-top: 3%;
 }
 
 #buttonContainer{
