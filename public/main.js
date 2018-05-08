@@ -4,7 +4,7 @@ $('#generate').on('click', function(e){
   e.preventDefault()
 
   $.ajax({
-    url: "http://ron-swanson-quotes.herokuapp.com/v2/quotes/1",
+    url: "https://crossorigin.me/http://ron-swanson-quotes.herokuapp.com/v2/quotes/1",
     crossDomain: true,
     dataType: "json",
     method: "GET",
@@ -14,7 +14,7 @@ $('#generate').on('click', function(e){
 
 //Get the gif
 $.ajax({
-  //it goes: endpoint +?q= + search term (no spaces) + &api_key= + whatever api key giphy gives you
+  //it goes: endpoint +?q= + search term (no spaces) + &api_key= + whatever api key Spotify gives you
   url: "https://api.giphy.com/v1/gifs/search?q=ron_swanson&api_key=99039d219bc44543b8e7588b14751ce3",
   dataType:"json",
   method: "GET",
